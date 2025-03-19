@@ -5,7 +5,7 @@ import { availableParallelism } from 'os';
 
 if (cluster.isPrimary) {
   const numCPUs = availableParallelism();
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 4; i++) {
     cluster.fork();
   }
 } else {

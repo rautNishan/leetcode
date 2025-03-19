@@ -10,8 +10,8 @@ export class AppController {
 
     this.pool = new Piscina({
       filename: resolve(__dirname, '../worker.js'),
-      maxThreads: 10,
-      minThreads: 10,
+      maxThreads: 12,
+      minThreads: 12,
       // idleTimeout: 100,
     });
   }
@@ -20,12 +20,6 @@ export class AppController {
   async submit() {
     const startTime = Date.now();
     const data = await this.pool.run({});
-    // const ans: number[] = [];
-    // for (let i = 0; i < 1000000; i++) {
-    //   if (i % 2 == 0) {
-    //     ans.push(i);
-    //   }
-    // }
     const endTime = Date.now();
     const timeTaken = endTime - startTime;
     console.log(`Time taken: ${timeTaken}ms`);
